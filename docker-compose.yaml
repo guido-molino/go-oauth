@@ -19,9 +19,16 @@ services:
     container_name: mongodb
     image: mongo
     volumes:
-      - mongodb-data:/data/db
+      - ./db:/data/db
+    ports: 
+      - 27017:27017
     networks:
       - go-net
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: svany
+      MONGO_INITDB_ROOT_PASSWORD: Svan!Doe2
+      MONGO_INITDB_DATABASE: nanobastardo
+    restart: always
 volumes: 
   mongodb-data:
 networks:

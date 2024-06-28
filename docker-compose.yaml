@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  app:
+    container_name: payments
+    build: 
+      args:
+        - GIN_MODE=debug
+        - PORT=8080
+      context: .
+    image: gotest:1
+    command: gow run .
+    networks:
+      - go-net
+    ports: 
+      - 8080:8080
+    volumes:
+      - .:/app
+
+volumes: 
+  gtestvolume:
+networks:
+  go-net: 
